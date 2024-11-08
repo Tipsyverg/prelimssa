@@ -9,12 +9,18 @@
 <body>
 <div class="container mt-5">
     <?php
+    // Initialize variables to store first name and last name
+    $firstName = '';
+    $lastName = '';
+
     // Check if the enrollment form has been submitted
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['Enroll-Btn'])) {
-        // Process enrollment data here if needed
+        // Retrieve first name and last name from the POST request
+        $firstName = htmlspecialchars($_POST['firstName']);
+        $lastName = htmlspecialchars($_POST['lastName']);
         // Show the Grade Form
     ?>
-        <h2>Grade Form</h2>
+        <h2>Enter Grades <?php echo $firstName . ' ' . $lastName; ?></h2>
         <form method="POST">
             <div class="mb-3">
                 <label for="prelim" class="form-label">Prelim</label>
@@ -63,16 +69,16 @@
                 </div>
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="gender" id="female" value="female" required>
-                    <label class="form-check-label" for="female">Female</label>
+                    <label class="form-check-label " for="female">Female</label>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary" name="Enroll-Btn">Next</button>
+            <button type="submit" class="btn btn-primary" name="Enroll-Btn">Enroll</button>
         </form>
     <?php
     }
     ?>
 </div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXs P1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-1n0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-1n0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0g0" crossorigin="anonymous"></script>
 </body>
 </html>
